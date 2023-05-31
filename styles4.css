@@ -1,0 +1,166 @@
+html {
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    scroll-behavior: smooth;
+}
+* {box-sizing: border-box;} /*cu asta limitam paddingul si altele sa nu depaseasca si sa nu ocupe mai mult spatiu decat ii dat width si height*/
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+/* Sections*/
+.section-block {
+    height: calc(100vh - 8rem);/* 100% vh din care sa scada singur 8rem care este inatimea barei de header, asta va fi responsive in functie de diensiunile dispozitivului*/
+    padding: 5rem;
+}
+.section-block.not-fullscreen {height: auto;}
+.section-block.grey {background-color: rgb(55, 51, 116);}
+.section-block.lilla {background-color:rgb(111, 84, 125);}
+.section-block h1, .section-block h2 {
+    display: block;  
+    margin-bottom: 10rem;
+    text-align: center;
+    font-size: 4.8rem; 
+    font-weight: 400; 
+}
+.section-block.grey h1, .section-block.lilla h1, .section-block.grey h2, .section-block.lilla h2 {color: #fff; }
+.section-block i {font-size: 5rem; color: white; margin-bottom: 7rem;}
+
+ @media (max-width:767px), (max-width:812px) and (orientation:landscape) {
+    .section-block {
+        height: auto; 
+        padding: 5rem 2.5rem;
+        min-height: calc(100vh - 8rem); /*asta specifica ca, chiar daca height=auto, adica in functie de dispozitiv, ii zice sa se adapteze si sa nu lase locuri goale fara fundal */
+    }
+        .section-block.not-fullscreen {min-width: none;}
+        .section-block h1, .section-block h2 {font-size: 3.2rem; margin-bottom: 5rem;}
+        .section-block i {font-size: 3rem; color: white; margin-bottom: 5rem; margin-top: 10rem;}
+        i:first-child {margin-top: 0rem;}
+ }
+/* Sections */
+
+/*Navigation*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;/*cu astea 3 de mai sus facem sa ramana fixat headerul*/
+    display:flex; /*cu flex sispace-between specificam ca copii de mai jos sa fie departati*/
+    justify-content:space-between; 
+    align-items: center; 
+    height:8rem; 
+    padding:0.75rem 5rem; 
+    background-color: lightgray;
+    z-index: 1;/*cu asta punem ca headerul sa fie mereu deasupra chiar si cand dam scroll restul paginii*/
+}
+    header + * {margin-top: 8rem;}/*asta zice ca chiar daca continutul pe un ecran mai mic o sa aiba nevoie de scroll, marginea de sus va fi cat ii inaltimea headerului*/
+    .logo {display: inline-block;}
+        .logo > img { width:5rem; height:5rem;border-radius:50%;}
+
+    .navigation {display: inline-block; text-align: center;}
+        .navigation > a {display: inline-block; margin-right: 1rem; font-size: 1.6rem; color: black; text-decoration: none;}
+        .navigation > a:last-child {margin-right: 0rem;}
+        .navigation > a:hover {text-decoration: underline;}
+@media (max-width:580px) {
+    header {padding: 0.75rem 2.5rem;}
+        .navigation > a {margin-bottom: 0.5rem;}
+}
+/*Navigation*/
+
+/*Hero*/
+.hero {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-image: url(images/bg.jpg); 
+    background-position:center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    padding: 0 5rem 20vh;
+} 
+    .hero::before {content:""; position: absolute; top: 0;left: 0; width: 100%; height: 100%; background: rgba(255,255,255, 0.25); z-index: -1;}
+    .hero h1 {position: relative;}
+    .hero  p {font-size: 1.6rem; line-height: 1.3;}
+    .avatar {
+        width:50rem;
+        border-radius: 15%;
+        box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+@media (max-width:767px), (max-width:812px) and (orientation:landscape) {
+    .hero {
+        display: block;
+        padding: 5rem 2.5rem; 
+    }
+    .hero  p {font-size: 1.6rem;}
+    .hero  img {display: block; margin-left: auto; margin-right: auto; width: 10rem;}    
+}
+/*Hero*/
+
+/*Pasiuni si Proiectele mele*/
+.my-passions h1, .my-portofolio h1 {margin-bottom: 7.5rem;}
+.my-passions-inner-container, .my-portofolio-inner-container {color: white; text-align: center;}
+.my-passions-inner-container h3, .my-portofolio-inner-container h3 {font-size: 2.4rem;}
+.my-passions-inner-container p, .my-portofolio-inner-container p {font-size: 1.6rem; color: white; text-align: justify;  line-height: 1.3;}
+/*Pasiuni si Proiectele mele*/
+
+/*Recomandation*/
+.rec-section-box { display:flex; align-items: center; color: white;} /*cu align-center - am aliniat centrul imaginii cu centrul textului*/
+    .rec-section-box > img {width:10rem; height:10rem;border-radius:50%;}
+    .rec-section-box > div {margin-left: 3rem;}
+    .rec-section-box h3 {display: block; font-size: 2.4rem; font-weight: 600; margin-bottom: 2rem;}
+    .rec-section-box p {font-size: 1.6rem;  line-height: 1.3;}
+
+@media (max-width:767px) {
+    .rec-section-box {display: block; text-align:center;}
+    .rec-section-box > div {margin-left: 0rem;}
+}
+/*Recomandation*/
+
+/*About me*/
+.about-me-inner-container {display: flex; justify-content: space-around; align-items: center; color: #fff; }
+    .about-me-inner-container > img {width:25rem; height:25rem; border-radius:50%;}
+    .about-me-inner-container > div {margin-left: 5rem;}
+    .about-me-inner-container  h3 {font-size: 2.4rem; font-weight: 600; margin-bottom: 3rem;}
+    .about-me-inner-container  p {font-size: 1.6rem;  line-height: 1.3;}
+
+ @media (max-width:767px) {
+    .about-me-inner-container {display: block; text-align: center;}
+    .about-me-inner-container > img {width:15rem; height:15rem; margin-bottom: 5rem;}
+    .about-me-inner-container > div {margin-left: 0rem;}
+ }
+/*About me*/
+
+/*Footer*/
+footer {font-size: 1.6rem; line-height: 1.3; color: #fff;}
+    footer h3 {display: block; font-size: 2.4rem; font-weight: 600; margin-bottom: 3rem;}
+    footer address {margin-bottom: 2rem;}
+    footer a {display: block; text-decoration: none;color: blueviolet;}
+    footer a:hover {text-decoration:underline;color: rgb(43, 141, 226);}
+/*Footer*/
+
+/*Grid*/
+.grid {width: calc(100% + 5rem); margin: 0 -2.5rem;}
+    .grid-box {float: left; margin: 0 2.5rem 5rem;} /* Daca le pui si astea doua, vei face vizibil gridul din spate : height: 10rem; background-color: rgb(111, 84, 125);*/
+    .box-full {width: calc(100% - 5rem);}
+    .box-half {width: calc(50% - 5rem);} /* am pus in 5rem care ar fi de fapt marginile stanga si dreapta de 2.5rem*/
+    .box-third {width: calc(33.33% - 5rem);}
+    .box-quarter {width: calc(25% - 5rem);}
+
+@media (max-width:767px) {
+    .grid-box {float: left; margin: 0 2.5rem 5rem;}
+    .box-half {width: calc(100% - 5rem);}
+    .box-third {width: calc(50% - 5rem);}
+    .box-quarter {width: calc(33.33% - 5rem);}
+}
+@media (max-width:480px) {
+    .box-full {width: calc(100% - 5rem);}
+    .box-half {width: calc(100% - 5rem);}
+    .box-third {width: calc(100% - 5rem);}
+    .box-quarter {width: calc(100% - 5rem);}
+}
+/*Grid*/
