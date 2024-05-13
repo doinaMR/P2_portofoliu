@@ -54,7 +54,7 @@ header {
     align-items: center; 
     height:8rem; 
     padding:0.75rem 5rem; 
-    background-color: lightgray;
+    background-color: rgb(253,112,59,255);
     z-index: 1;/*cu asta punem ca headerul sa fie mereu deasupra chiar si cand dam scroll restul paginii*/
 }
     header + * {margin-top: 8rem;}/*asta zice ca chiar daca continutul pe un ecran mai mic o sa aiba nevoie de scroll, marginea de sus va fi cat ii inaltimea headerului*/
@@ -62,7 +62,7 @@ header {
         .logo > img { width:5rem; height:5rem;border-radius:50%;}
 
     .navigation {display: inline-block; text-align: center;}
-        .navigation > a {display: inline-block; margin-right: 1rem; font-size: 1.6rem; color: black; text-decoration: none;}
+        .navigation > a {display: inline-block; margin-right: 1rem; font-size: 1.6rem; font-weight: 300; color: black; text-decoration: none;}
         .navigation > a:last-child {margin-right: 0rem;}
         .navigation > a:hover {text-decoration: underline;}
 @media (max-width:580px) {
@@ -76,19 +76,29 @@ header {
     display: flex;
     align-items: center;
     position: relative;
-    background-image: url(images/bg.jpg); 
+    background-image: url(images/bg.jpg);
     background-position:center; 
     background-repeat: no-repeat; 
     background-size: cover;
-    padding: 0 5rem 20vh;
+    padding: 0 7rem 20vh;
 } 
     .hero::before {content:""; position: absolute; top: 0;left: 0; width: 100%; height: 100%; background: rgba(255,255,255, 0.25); z-index: -1;}
-    .hero h1 {position: relative;}
-    .hero  p {font-size: 1.6rem; line-height: 1.3;}
+    .hero h1 {position: relative; text-align: left; margin-bottom: -0.05rem;}
+    .hero  p {font-size: 1.8rem; font-weight: 300; line-height: 1.5; color: rgb(36, 36, 36);}
+    .word-1 {font-size: 7rem; font-weight: 100; color: rgb(125, 47, 198);}
+    .word-2 {font-size: 10rem; color: rgb(36, 36, 36);}
+    .hero-txt {
+        background-color: rgba(237, 124, 75, 0.5);
+        padding: 2rem;
+        margin-right: 20%;
+        width: auto;
+        border-radius: 2rem;
+    }
+    .hero  img {width: 30%;}
     .avatar {
-        width:50rem;
-        border-radius: 15%;
-        box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 50%;
+        filter: drop-shadow(0 4px 8px rgba(52, 28, 24, 0.9));
+        filter: drop-shadow(0 6px 20px rgba(52, 28, 24, 0.8));
     }
 
 @media (max-width:767px), (max-width:812px) and (orientation:landscape) {
@@ -96,8 +106,17 @@ header {
         display: block;
         padding: 5rem 2.5rem; 
     }
-    .hero  p {font-size: 1.6rem;}
-    .hero  img {display: block; margin-left: auto; margin-right: auto; width: 10rem;}    
+    .word-1 {font-size: 5rem;}
+    .word-2 {font-size: 7rem;}
+    .hero-txt {
+        margin-right: 0;
+    }
+    .hero  p {font-size: 1.6rem; margin-right: 0;}
+    .hero  img {display: block; margin-left: auto; margin-right: auto; width: 20rem;} 
+    .avatar {
+        margin-left: 0;
+        margin-top: 10rem;
+    }  
 }
 /*Hero*/
 
